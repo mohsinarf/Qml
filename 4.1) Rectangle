@@ -1,0 +1,28 @@
+import QtQuick 2.15
+import QtQuick.Window 2.15
+
+Window {
+    width: 640
+    height: 480
+    visible: true
+    title: qsTr("Hello World")
+    id: root
+
+    Rectangle{
+        id: myRectangle
+
+        width: 200
+        height: 200
+        anchors.centerIn: parent
+        color: "red"
+
+        border.width: 20
+        border.color: "black"
+        radius: width
+
+        gradient: Gradient{
+            GradientStop{position: 0.0; color:  "orange"}
+            GradientStop{position: 1.0; color:  "green"}
+        }
+    }
+}
