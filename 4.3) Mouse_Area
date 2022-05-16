@@ -1,0 +1,37 @@
+import QtQuick 2.15
+import QtQuick.Window 2.15
+
+Window {
+    width: 640
+    height: 480
+    visible: true
+    title: qsTr("Hello World")
+    id: root
+
+    Rectangle
+    {
+        id: myRectangle
+        color: "blue"
+        width:  200
+        height: 200
+        anchors.centerIn: parent
+
+        MouseArea
+        {
+            id: myMouse
+            anchors.fill: parent
+            hoverEnabled: true
+            acceptedButtons: Qt.LeftButton | Qt.RightButton
+
+            onClicked: {
+                if(mouse.button === Qt.LeftButton) parent.color = "red"
+                if(mouse.button === Qt.RightButton) parent.color = "green"
+            }
+            onDoubleClicked: console.log("Double clicked!" + myMouse.button)
+
+            onPositionChanged: console.log("Position X:" + mouseX + "Y:" + mouseY)
+            onEntered: myRectangle.color = "orange"
+            onExited: myRectangle.color = "blue"
+        }
+    }
+}
