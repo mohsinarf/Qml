@@ -1,0 +1,40 @@
+import QtQuick 2.15
+import QtQuick.Window 2.15
+
+Window {
+    width: 640
+    height: 480
+    visible: true
+    title: qsTr("Hello World")
+
+    Rectangle{
+        id: myRectangle
+        width: 200
+        height: 200
+        color: "red"
+
+        function update()
+        {
+            console.log("Position X:" + x + "Y:" + y)
+            label.text = Math.round(x) + "X" + Math.round(y)
+        }
+
+        x: 100
+        y: 100
+        Component.onCompleted: update()
+        onXChanged: update()
+        onYChanged: update()
+
+        Text{
+            id: label
+            text: qsTr("Sample text")
+            anchors.centerIn: parent
+        }
+
+        MouseArea
+        {
+            anchors.fill: parent
+            drag.target: parent
+        }
+    }
+}
