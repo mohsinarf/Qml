@@ -1,0 +1,9 @@
+// Variables
+var x= 56
+print(x)
+
+// Scopes
+{
+var a = 10
+print("A: " + a)
+}
