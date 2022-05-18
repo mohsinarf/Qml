@@ -7,3 +7,69 @@ print(x)
 var a = 10
 print("A: " + a)
 }
+
+// Flow control statements
+
+// IF Else Statements
+var b=10
+if(b === 9) print("B is equal to 9")
+else if (b<9) print("B is less than 9")
+else print("B is greater than 9")
+
+// Loops
+
+// For Loop
+for(var i=0; i<10; i++)
+    print(i)
+
+// Do While Loop
+var j=3
+do {
+    print(j)
+    j--
+}while(j>0)
+
+// While Loop
+var k=3
+while(k>0){
+    print(k)
+    k--
+}
+
+// Switch Statement
+x=2
+y= "Hello"
+switch(y){
+   case(1):
+   print("One")
+   break
+   
+   case(2):
+   print("One")
+   break
+   
+   case(3):
+   print("One")
+   break
+   
+   case("Hello"):
+   print("Hello World!!")
+   break
+   
+   default:
+   print("UNKOWN")
+   break
+}
+
+// Ternary Operator
+var x= 9
+var y = (x== 10)? true: false
+print(y)
+
+// Functions
+function sqft(x, y){
+return x * y
+}
+
+var y = sqft(10, 3)
+print(y)
