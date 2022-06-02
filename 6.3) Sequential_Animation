@@ -1,0 +1,54 @@
+import QtQuick
+
+Window {
+    width: 640
+    height: 480
+    visible: true
+    title: qsTr("Hello World")
+    id: rootItem
+
+    Rectangle {
+        id: myShape
+        color: "red"
+        width: 200
+        height: 200
+        anchors.centerIn: parent
+        clip: true
+
+        Text {
+            id: title
+            text: "Scale"
+            anchors.centerIn: myShape
+            font.bold: true
+            font.pointSize: 85
+            color: "blue"
+            rotation: -45
+        }
+
+        SequentialAnimation
+        {
+            id: seqAnimator
+            loops: Animation.Infinite
+            running: true
+
+
+            ScaleAnimator
+            {
+                id: aniShrink
+                target: myShape
+                from: 1.0
+                to: 0.5
+                duration: 1000
+            }
+
+            ScaleAnimator
+            {
+                id: aniGrow
+                target: myShape
+                from: 0.5
+                to: 1
+                duration: 1000
+            }
+        }
+    }
+}
