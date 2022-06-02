@@ -1,0 +1,52 @@
+import QtQuick
+
+Window {
+    width: 640
+    height: 480
+    visible: true
+    title: qsTr("Hello World")
+    id: rootItem
+
+    Rectangle {
+        id: myShape
+        color: "red"
+        width: 200
+        height: 200
+        anchors.centerIn: parent
+
+        Text {
+            id: title
+            text: Math.round(myShape.rotation)
+            anchors.centerIn: myShape
+            font.bold: true
+            font.pointSize: 50
+            color: "blue"
+        }
+
+        RotationAnimation
+        {
+            id: circularRotation
+            target: myShape
+            from: myShape.rotation
+            to: 360
+            direction: RotationAnimation.Clockwise
+            loops: RotationAnimation.Infinite
+            duration: 1000
+            running: true
+        }
+
+        MouseArea{
+            id: clickableArea
+            anchors.fill: myShape
+            onClicked: {
+                if(circularRotation.paused)
+                    circularRotation.resume()
+                else
+                    circularRotation.pause()
+            }
+        }
+
+
+    }
+
+}
